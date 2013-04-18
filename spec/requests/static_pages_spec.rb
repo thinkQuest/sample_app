@@ -3,7 +3,6 @@ require 'spec_helper'
 describe "Static pages" do
 
   describe "Home page" do
-
     it "should have the content 'Home'" do
       visit '/static_pages/home'
       page.should have_content('Home')
@@ -16,7 +15,6 @@ describe "Static pages" do
   end
 
   describe "Help page" do
-
     it "should have the content 'Help'" do
       visit '/static_pages/help'
       page.should have_content('Help')
@@ -29,7 +27,6 @@ describe "Static pages" do
   end
 
   describe "About page" do
-
     it "should have the content 'About Us'" do
       visit '/static_pages/about'
       page.should have_content('About Us')
@@ -38,6 +35,17 @@ describe "Static pages" do
       visit '/static_pages/about'
       page.should have_selector('title',
                     :text => "About Us Page on Rails Application | About Us")
+    end
+  end
+describe "Contacts Page" do
+    it "should have the content 'Contacts'" do
+  visit /static_pages/contact
+  page.should have_content('Contacts')
+    end
+    it "should have the title 'Contacts'" do
+      visit '/static_pages/contact'
+      page.should have_selector('title',
+                    :text => "Contacts Page on Rails Application | Contacts")
     end
   end
 end
